@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Fake News Detector</h1>
+        <form id="newsForm">
+            <textarea name="news_article" rows="10" cols="50" placeholder="Paste news article here..."></textarea>
+            <br><br>
+            <button type="submit">Check for Fake News</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#newsForm').on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/predict',
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        $('#results').html(`
+                            <h2>Predictions:</h2>
+                            <p>LR Prediction: ${data['LR Prediction']}</p>
+                            <p>RFC Prediction: ${data['RFC Prediction']}</p>
+                            <p>GBC Prediction: ${data['GBC Prediction']}</p>
+                        `);
+                    },
+                    error: function() {
+                        $('#results').html('<p>An error occurred.</p>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
