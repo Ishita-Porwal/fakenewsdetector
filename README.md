@@ -10,7 +10,7 @@ Detects fake news based on textual content analysis.
 Uses natural language processing (NLP) techniques to process news articles.
 Classifies news as "Real" or "Fake" with high accuracy.
 Can be integrated into web applications for real-time fake news detection.
-Technologies Used
+# Technologies Used
 # Programming Language: Python
 # Libraries:
 Pandas and NumPy for data manipulation
@@ -31,3 +31,8 @@ Our final model achieved an accuracy of approximately XX% (replace with your mod
 Increase Dataset Size: Adding more diverse sources to improve model generalizability.
 Deep Learning Models: Experimenting with advanced deep learning models like LSTM and BERT to capture complex patterns in text data.
 Real-Time Detection: Implement real-time detection to process live news feeds or social media posts.
+
+# Contributors
+Ishita Porwal - Model Development, Model Training 
+Mishika Sureliya - Web Development, Flask Integration
+Purvansh Bhor - Machine Learning, Data Preprocessing 
